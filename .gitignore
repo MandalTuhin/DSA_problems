@@ -1,0 +1,21 @@
+# Ignore compiled executables (named manually)
+# This ignores all files without an extension
+# So your .cpp files are safe
+
+# Common binary patterns
+*.out
+*.exe
+*.o
+*.so
+
+# Executables with no extension (like 'myprogram')
+# This line ignores any file with no extension
+*
+
+# But allow specific file types (like .cpp, .h, .md, etc.)
+!*.cpp
+!*.h
+!*.hpp
+!*.md
+!.gitignore
+
