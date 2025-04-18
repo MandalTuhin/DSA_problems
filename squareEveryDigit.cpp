@@ -1,37 +1,43 @@
+#include <cmath>
 #include <iostream>
-#include <string>
-#include <vector>
-
 using namespace std;
 
-// int reverse(int num, std::string number_string) {
-//   if ()
-//     ;
-//   number_string += num % 10
-// }
+int number_of_digits(int number) {
+  int count = 0;
+  while (number > 0) {
+    count++;
+    number /= 10;
+  }
+  return count;
+}
 
-string square_digit(string number_string) {
-  string result;
-  for (size_t i = 0; i < number_string.size(); i++) {
-    result += number_string[i] * number_string[i];
+int square_digits(int number) {
+  int work_shift = 0;
+  int result = 0;
+  int temp = number;
+  bool flag = false;
+  while (number > 0) {
+    int temp = number % 10;
+    if (temp == 0) {
+      flag = true;
+    }
+    if (flag == true) {
+      work_shift = pow(10, number_of_digits(result) + 1);
+      flag = false;
+    }
+    result = result + (temp * temp) * flag ? work_shift
+                                           : pow(10, number_of_digits(result));
+    cout << result << " ";
+    number /= 10;
+  }
+  if (temp % 10 == 0) {
+    result *= 10;
   }
   return result;
 }
 
-int square_digits(string number_string) {
-  string number;
-  while (num > 0) {
-    int temp = num % 10;
-    number_string += to_string(temp);
-    num /= 10;
-  }
-  cout << number_string;
-  number_string = square_digit(number_string);
-  return number_string;
-}
-
 int main() {
-  int num = 1221;
-  cout << square_digits(num);
+  int number = 8807;
+  cout << square_digits(number);
   return 0;
 }
