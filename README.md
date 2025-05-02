@@ -26,3 +26,4 @@ int main(){
 
 ```
 
+I am changing the readme file a little bit to test how lazygit work. 
